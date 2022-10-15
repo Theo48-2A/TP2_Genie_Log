@@ -41,6 +41,8 @@ public class StatementPrinter {
 
       // print line for this order
       result += String.format("  %s: %s (%s seats)\n", play.name, frmt.format(thisAmount / 100), perf.audience);
+      tampon = String.format("  %s: %s (%s seats)\n", play.name, frmt.format(thisAmount), perf.audience);
+      resultt.append(tampon);
       totalAmount += thisAmount;
     }
     result += String.format("Amount owed is %s\n", frmt.format(totalAmount / 100));
