@@ -26,6 +26,8 @@ public class StatementPrinterTests {
         verify(result);
     }
 
+    // Ce test n'a plus raison d'être car maintenant la validité d'un type de pièce se fait depuis la création de l'objet.
+/*
     @Test
     void statementWithNewPlayTypes() {
         Map<String, Play> plays = Map.of(
@@ -41,4 +43,5 @@ public class StatementPrinterTests {
             statementPrinter.print(invoice, plays);
         });
     }
+*/   
 }
