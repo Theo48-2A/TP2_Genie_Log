@@ -7,6 +7,8 @@ public class StatementPrinter {
     int totalAmount = 0;
     int volumeCredits = 0;
     String result = String.format("Statement for %s\n", invoice.customer);
+    String tampon = String.format("Statement for %s\n", invoice.customer);  // Un tampon qui va servir à insérer dans le StringBuffer
+    StringBuffer resultt = new StringBuffer(tampon);	//Notre StringBuffer qui a remplacé le String de départ 
 
     NumberFormat frmt = NumberFormat.getCurrencyInstance(Locale.US);
 
