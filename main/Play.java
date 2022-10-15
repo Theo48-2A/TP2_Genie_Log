@@ -9,7 +9,17 @@ public class Play {
 
   public Play(String name, String type) {
     this.name = name;
-    this.type = type;
+    
+    //Maintenant on va tester si le type de pièce est correct
+    if( TestType(type) ){
+        this.type = type;
+    }
+    
+    else{
+        throw new Error("unknown type: ${this.type}");
+    }
+    
+
   }
   
   public boolean TestType(String type){  //Fonction qui regarde si le type saisi est correct
