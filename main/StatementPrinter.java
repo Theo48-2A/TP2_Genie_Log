@@ -50,6 +50,8 @@ public class StatementPrinter {
     resultt.append(tampon);
     
     result += String.format("You earned %s credits\n", volumeCredits);
+    tampon = String.format("You earned %s credits\n", volumeCredits);
+    resultt.append(tampon);
     return result;
   }
 
