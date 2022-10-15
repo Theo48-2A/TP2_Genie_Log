@@ -43,5 +43,13 @@ public class StatementPrinterTests {
             statementPrinter.print(invoice, plays);
         });
     }
-*/   
+*/  
+    @Test
+    void statementWithNewPlayTypes() {
+
+        Assertions.assertThrows(Error.class, () -> {
+            new Play("Henry V", "history");
+            new Play("As You Like It", "pastoral");
+        });
+    }
 }
