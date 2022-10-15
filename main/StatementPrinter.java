@@ -6,9 +6,8 @@ public class StatementPrinter {
   public String print(Invoice invoice, Map<String, Play> plays) {
     int totalAmount = 0;
     int volumeCredits = 0;
-    String result = String.format("Statement for %s\n", invoice.customer);
     String tampon = String.format("Statement for %s\n", invoice.customer);  // Un tampon qui va servir à insérer dans le StringBuffer
-    StringBuffer resultt = new StringBuffer(tampon);	//Notre StringBuffer qui a remplacé le String de départ 
+    StringBuffer result = new StringBuffer(tampon);	//Notre StringBuffer qui a remplacé le String de départ 
 
     NumberFormat frmt = NumberFormat.getCurrencyInstance(Locale.US);
 
@@ -40,19 +39,16 @@ public class StatementPrinter {
       if ("comedy".equals(play.type)) volumeCredits += Math.floor(perf.audience / 5);
 
       // print line for this order
-      result += String.format("  %s: %s (%s seats)\n", play.name, frmt.format(thisAmount / 100), perf.audience);
       tampon = String.format("  %s: %s (%s seats)\n", play.name, frmt.format(thisAmount / 100), perf.audience);
-      resultt.append(tampon);
+      result.append(tampon);
       totalAmount += thisAmount;
     }
-    result += String.format("Amount owed is %s\n", frmt.format(totalAmount / 100));
     tampon = String.format("Amount owed is %s\n", frmt.format(totalAmount / 100));
-    resultt.append(tampon);
+    result.append(tampon);
     
-    result += String.format("You earned %s credits\n", volumeCredits);
     tampon = String.format("You earned %s credits\n", volumeCredits);
-    resultt.append(tampon);
-    return resultt.substring(0);
+    result.append(tampon);
+    return result.substring(0);
   }
 
 }
