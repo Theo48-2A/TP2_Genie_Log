@@ -41,18 +41,18 @@ public class StatementPrinter {
 
       // print line for this order
       result += String.format("  %s: %s (%s seats)\n", play.name, frmt.format(thisAmount / 100), perf.audience);
-      tampon = String.format("  %s: %s (%s seats)\n", play.name, frmt.format(thisAmount), perf.audience);
+      tampon = String.format("  %s: %s (%s seats)\n", play.name, frmt.format(thisAmount / 100), perf.audience);
       resultt.append(tampon);
       totalAmount += thisAmount;
     }
     result += String.format("Amount owed is %s\n", frmt.format(totalAmount / 100));
-    tampon = String.format("Amount owed is %s\n", frmt.format(totalAmount));
+    tampon = String.format("Amount owed is %s\n", frmt.format(totalAmount / 100));
     resultt.append(tampon);
     
     result += String.format("You earned %s credits\n", volumeCredits);
     tampon = String.format("You earned %s credits\n", volumeCredits);
     resultt.append(tampon);
-    return result;
+    return resultt.substring(0);
   }
 
 }
