@@ -46,6 +46,9 @@ public class StatementPrinter {
       totalAmount += thisAmount;
     }
     result += String.format("Amount owed is %s\n", frmt.format(totalAmount / 100));
+    tampon = String.format("Amount owed is %s\n", frmt.format(totalAmount));
+    resultt.append(tampon);
+    
     result += String.format("You earned %s credits\n", volumeCredits);
     return result;
   }
