@@ -11,4 +11,15 @@ public class Play {
     this.name = name;
     this.type = type;
   }
+  
+  public boolean TestType(String type){  //Fonction qui regarde si le type saisi est correct
+     if(type.equals(comedy)){
+        return true;
+     }
+     else if(type.equals(tragedy)){
+        return true;
+     }
+ 
+     return false;
+  }
 }
