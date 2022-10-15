@@ -29,8 +29,7 @@ public class StatementPrinter {
           }
           thisAmount += 3 * perf.audience;
           break;
-        default:
-          throw new Error("unknown type: ${play.type}");
+        // On a retiré default car il n'a plus d'utilité, comme on vérifie le type depuis Play
       }
 
       // add volume credits
