@@ -81,6 +81,57 @@ public class Affiche_facture{
         
       return Facture;   
    }
+   
+   public String toHTML(){
+   
+   //chemin vers les fichiers html générés : "../../../fichiers_html_text_generes/HTML/CeFichierDeBoss.txt"
+     
+     
+      PrintWriter Facture_HTML = null;
+      String Facture = Transform_text_en_html();    //Transformation de la facture text en html
+        
+      try {
+         Facture_HTML = new PrintWriter("fichiers_html_text_generes/HTML/" + this.getNomclient() + "_Facture_HTML.html");
+      } 
+      catch (FileNotFoundException e) {
+         System.out.println("Erreur lors de la création du fichier: " + e.getMessage());
+
+      }
+      Objects.requireNonNull(Facture_HTML).println(Facture);
+      Facture_HTML.close();
+        
+      return Facture;   
+   }
+
+
+
+
+   public String Transform_text_en_html(){
+   
+   //On va insérer petit à petit le code html dans un StringBuffer
+
+      //Balise doctype html
+      String tampon = "<!doctype html>\n";  
+      StringBuffer html = new StringBuffer(tampon); 
+      
+      //debut balise html
+      tampon = "<html lang=\"fr\">\n";  
+      html.append(tampon);
+      
+      //debut balise head
+      tampon = "<head>\n"; 
+      html.append(tampon);
+      
+      //Balise meta charset
+      tampon = "  <meta charset=\"utf-8\">\n"; 
+      html.append(tampon);
+      
+      //Balise titre
+      tampon = "  <title>Facture</title>\n";  
+      html.append(tampon);
+      
+      
+   }
 
 
 }
