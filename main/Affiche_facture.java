@@ -5,8 +5,7 @@ import java.util.Objects;
 
 public class Affiche_facture{
 
-   
- private String contenu_Facture;     //Le contenu de la facture
+   private String contenu_Facture;     //Le contenu de la facture
    private String nom_client;  		// Nom du client
    private String[][] tableau_pieces_infos;    //Le tableau qui contient chaque pièce avec ses informations [[nom][nb_spectateurs][cout]]
    private String[] tableau_fin_info;         //Le tableau qui contient le cout total ainsi que les points de fidelité gagnés
@@ -19,8 +18,7 @@ public class Affiche_facture{
 
    }
 
-
-//Obtenir le Contenu de la facture
+   //Obtenir le Contenu de la facture
    public String getContenu_facture(){
       return this.contenu_Facture;
    }
@@ -39,12 +37,14 @@ public class Affiche_facture{
    public String[] getTableau_fin_info(){
       return this.tableau_fin_info;
    }
-   
+
+
+
    public boolean toText(){
    
      //chemin vers les fichiers txt générés : "../../../fichiers_html_text_generes/Text/CeFichierDeBoss.txt"
 
-     PrintWriter Facture_text = null;
+      PrintWriter Facture_text = null;
       String Facture = this.getContenu_facture();
         
       try {
@@ -57,30 +57,11 @@ public class Affiche_facture{
       Objects.requireNonNull(Facture_text).println(Facture);
       Facture_text.close();
         
-      return true;  
+      return true;   
    }
-
-
-   public String toHTML(){
    
-   //chemin vers les fichiers html générés : "../../../fichiers_html_text_generes/HTML/CeFichierDeBoss.txt"
-     
-     
-      PrintWriter Facture_HTML = null;
-      String Facture = Transform_text_en_html();    //Transformation de la facture text en html
-        
-      try {
-         Facture_HTML = new PrintWriter("fichiers_html_text_generes/HTML/" + this.getNomclient() + "_Facture_HTML.html");
-      } 
-      catch (FileNotFoundException e) {
-         System.out.println("Erreur lors de la création du fichier: " + e.getMessage());
 
-      }
-      Objects.requireNonNull(Facture_HTML).println(Facture);
-      Facture_HTML.close();
-        
-      return Facture;   
-   }
+  
    
    public String toHTML(){
    
@@ -176,6 +157,9 @@ public class Affiche_facture{
       tampon = "  </ul>\n";
       html.append(tampon);
 
+
+     
+      
       //Maintenant le tableau: --------------------------------------------------------------------------------------------------------------------------------------
       
       tampon = "  <table>\n";
@@ -205,7 +189,8 @@ public class Affiche_facture{
       
 
       // Les deux dernieres lignes 
-	//Total owed			
+      
+      //Total owed			
       tampon = "    <tr>\n" 
       				+ "      <th COLSPAN=\"2\" style=\"text-align:right\">" + "Total owed:" + "</th>\n" 
       			     +    "      <td>" +  this.getTableau_fin_info()[0]  +  "</td>\n" 
@@ -231,6 +216,8 @@ public class Affiche_facture{
       
    
      //fin tableau: --------------------------------------------------------------------------------------------------------------------------------------------
+
+     
       tampon = "  <i>Payment is required under 30 days. We can break your knees if you don't do so.</i>\n";
       html.append(tampon);
       
@@ -249,6 +236,5 @@ public class Affiche_facture{
       
       return html.substring(0);   //On retourne la page html générée
    }
-
 
 }
