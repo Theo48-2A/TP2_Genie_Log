@@ -130,6 +130,53 @@ public class Affiche_facture{
       tampon = "  <title>Facture</title>\n";  
       html.append(tampon);
       
+      // Balise style
+      tampon = "  <style>\n" 
+      				+ "     td,th {\n"
+      				+ "         border: 1px solid rgb(190, 190, 190);\n"
+      				+ "         padding: 10px;\n"
+      				+ "     }\n"
+      				+ "     table {\n"
+      				+ "         border: 2px solid rgb(200, 200, 200);\n"
+      				+ "         font-family: sans-serif;\n"
+      				+ "         font-size: .8rem;\n"
+      				+ "     }\n"
+      				+ "     i {\n"
+      				+ "         display: inline-block;\n"
+      				+ "         margin-top: 30px;\n"
+      				+ "     }\n"
+      				+ "  </style>\n"; 
+      html.append(tampon);
+      
+      //Balise script pour js (meme s'il n'y en a pas ici)
+      tampon = "  <script src=\"script.js\"></script>\n";
+      html.append(tampon);
+      
+      //fin balise head
+      tampon = "</head>\n";
+      html.append(tampon);
+
+      //Debut balise body
+      tampon = "<body>\n";
+      html.append(tampon);
+      
+      //un titre en h1
+      tampon = "  <h1>Invoice</h1>\n";
+      html.append(tampon);
+      
+
+      tampon = "  <ul>\n";
+      html.append(tampon);
+      
+
+      tampon = "    <li><b>Client : </b>" + this.getNomclient() + "</li>\n";
+      html.append(tampon);
+      
+
+      tampon = "  </ul>\n";
+      html.append(tampon);
+
+      
       
    }
 
