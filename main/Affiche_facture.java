@@ -176,7 +176,35 @@ public class Affiche_facture{
       tampon = "  </ul>\n";
       html.append(tampon);
 
+      //Maintenant le tableau: --------------------------------------------------------------------------------------------------------------------------------------
       
+      tampon = "  <table>\n";
+      html.append(tampon);
+
+      tampon = "    <tr>\n" 
+                        +  "      <th>Pièce</th>\n" 
+                        +  "      <th>Seats sold</th>\n" 
+                        +  "      <th>Price</th>\n"          
+                   + "    </tr>\n"; 
+      html.append(tampon);
+            
+      // Cette partie est itérée par un for car dépendante du nombre de pièces à traiter
+      
+      for(String piece_info[] : this.getTableau_pieces_infos()){
+
+
+		 
+         tampon = "    <tr>\n" +
+         				"      <td>" +  piece_info[0] + "</td>\n"	
+         			       +"      <td>" +  piece_info[1] + "</td>\n"
+         			       +"      <td style=\"text-align:right\">" +  piece_info[2] + "</td>\n"	
+         		    +  "    </tr>\n";
+         html.append(tampon);
+      }
+      
+      
+
+      // Les deux dernieres lignes 
       
    }
 
