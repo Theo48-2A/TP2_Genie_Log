@@ -231,7 +231,23 @@ public class Affiche_facture{
       
    
      //fin tableau: --------------------------------------------------------------------------------------------------------------------------------------------
+      tampon = "  <i>Payment is required under 30 days. We can break your knees if you don't do so.</i>\n";
+      html.append(tampon);
       
+      
+      
+      //Fermeture body
+      tampon = "</body>\n";  
+      html.append(tampon);
+      
+        
+
+      //Fermeture html
+      tampon = "</html>";
+      html.append(tampon);
+      
+      
+      return html.substring(0);   //On retourne la page html générée
    }
 
 
