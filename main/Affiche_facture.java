@@ -39,6 +39,13 @@ public class Affiche_facture{
    public String[] getTableau_fin_info(){
       return this.tableau_fin_info;
    }
+   
+   public boolean toText(){
+   
+     //chemin vers les fichiers txt générés : "../../../fichiers_html_text_generes/Text/CeFichierDeBoss.txt"
+
+      
+   }
 
 
 
