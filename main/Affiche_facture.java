@@ -44,7 +44,20 @@ public class Affiche_facture{
    
      //chemin vers les fichiers txt générés : "../../../fichiers_html_text_generes/Text/CeFichierDeBoss.txt"
 
-      
+     PrintWriter Facture_text = null;
+      String Facture = this.getContenu_facture();
+        
+      try {
+         Facture_text = new PrintWriter("fichiers_html_text_generes/Text/" + this.getNomclient() + "_Facture_text.txt");
+      } 
+      catch (FileNotFoundException e) {
+         System.out.println("Erreur lors de la création du fichier: " + e.getMessage());
+
+      }
+      Objects.requireNonNull(Facture_text).println(Facture);
+      Facture_text.close();
+        
+      return true;  
    }
 
 
