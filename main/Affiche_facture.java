@@ -20,7 +20,25 @@ public class Affiche_facture{
    }
 
 
+//Obtenir le Contenu de la facture
+   public String getContenu_facture(){
+      return this.contenu_Facture;
+   }
+   
+   //Obtenir le nom du client
+   public String getNomclient(){
+      return this.nom_client;
+   }
+   
+   //Obtenir le tableau qui contient les informations des pièces de théâtre
+   public String[][] getTableau_pieces_infos(){
+      return this.tableau_pieces_infos;
+   }
 
+   //Obtenir le tableau qui contient la somme dû par le client ainsi que les points de fidélité qu'il a gagné
+   public String[] getTableau_fin_info(){
+      return this.tableau_fin_info;
+   }
 
 
 
