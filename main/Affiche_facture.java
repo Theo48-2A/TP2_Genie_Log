@@ -61,7 +61,26 @@ public class Affiche_facture{
    }
 
 
+   public String toHTML(){
+   
+   //chemin vers les fichiers html générés : "../../../fichiers_html_text_generes/HTML/CeFichierDeBoss.txt"
+     
+     
+      PrintWriter Facture_HTML = null;
+      String Facture = Transform_text_en_html();    //Transformation de la facture text en html
+        
+      try {
+         Facture_HTML = new PrintWriter("fichiers_html_text_generes/HTML/" + this.getNomclient() + "_Facture_HTML.html");
+      } 
+      catch (FileNotFoundException e) {
+         System.out.println("Erreur lors de la création du fichier: " + e.getMessage());
 
+      }
+      Objects.requireNonNull(Facture_HTML).println(Facture);
+      Facture_HTML.close();
+        
+      return Facture;   
+   }
 
 
 }
