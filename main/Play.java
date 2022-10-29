@@ -1,35 +1,47 @@
-public class Play {
-  // Les variables static (finales aussi) qui correspondent au type de pièce qu'il est possible d'avoir  
-  public static final String comedy = "comedy";
-  public static final String tragedy = "tragedy";
-  //-----------------------------------------------------------------------------------------------
+import java.text.NumberFormat;
+import java.util.*;
 
-  public String name;
-  public String type;
+public class Play {
+
+// Les variables static (finales aussi) qui correspondent au type de pièce qu'il est possible d'avoir  
+  private static final String comedy = "comedy";
+  private static final String tragedy = "tragedy";
+//-----------------------------------------------------------------------------------------------
+
+
+  private String name;
+  private String type;
 
   public Play(String name, String type) {
-    this.name = name;
-    
-    //Maintenant on va tester si le type de pièce est correct
-    if( TestType(type) ){
-        this.type = type;
-    }
-    
-    else{
-        throw new Error("unknown type: ${this.type}");
-    }
+    this.name = Objects.requireNonNull(name);
+    this.type = Objects.requireNonNull(testType(type));
     
 
   }
   
-  public boolean TestType(String type){  //Fonction qui regarde si le type saisi est correct
+  //Obtenir le nom
+  public String getName(){
+     return this.name;
+  }
+  
+  
+  //Obtenir le titre
+  public String getType(){
+     return this.type;
+  }
+
+  public static String testType(String type){  //Fonction qui regarde si le type saisi est correct  
      if(type.equals(comedy)){
-        return true;
+        return type;
      }
      else if(type.equals(tragedy)){
-        return true;
+        return type;
      }
  
-     return false;
+     return null;
   }
+  
+  
+  
 }
+
