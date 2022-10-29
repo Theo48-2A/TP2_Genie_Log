@@ -205,6 +205,32 @@ public class Affiche_facture{
       
 
       // Les deux dernieres lignes 
+	//Total owed			
+      tampon = "    <tr>\n" 
+      				+ "      <th COLSPAN=\"2\" style=\"text-align:right\">" + "Total owed:" + "</th>\n" 
+      			     +    "      <td>" +  this.getTableau_fin_info()[0]  +  "</td>\n" 
+      			 + "    </tr>\n"; 
+      html.append(tampon);
+      			 
+      
+      //Fidelity points earned			                  
+      tampon = "    <tr>\n" 
+                                + "      <th COLSPAN=\"2\" style=\"text-align:right\">" + "Fidelity points earned:" + "</th>\n"
+                                + "      <td>" +  this.getTableau_fin_info()[1]  +  "</td>\n" 
+                         + "    </tr>\n";  
+      html.append(tampon);
+      
+      
+                 
+      
+      //Fermeture balise table
+      tampon = "  </table>\n";
+      html.append(tampon);
+      
+      
+      
+   
+     //fin tableau: --------------------------------------------------------------------------------------------------------------------------------------------
       
    }
 
